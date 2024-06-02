@@ -18,7 +18,10 @@ p {
   margin-bottom: 0 !important;
   color: red;
 }
-
+.shad_btn {
+  border: 1px solid white;
+  border-radius: 5px;
+}
 .custom_input {
   outline: none;
   margin-top: 15px;
