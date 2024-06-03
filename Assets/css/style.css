@@ -32,7 +32,6 @@ p {
   border: 2px solid black;
   border-radius: 2px;
   transition: all 400ms linear;
-  cursor: not-allowed;
 }
 
 .sub_btn:enabled {

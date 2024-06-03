@@ -19,12 +19,12 @@
         class="d-flex flex-column flex-md-row gap-3 justify-content-center mt-5"
       >
         <a
-          class="text-white text-center  text-decoration-none shad_btn px-3 py-2"
+          class="text-white text-center text-decoration-none shad_btn px-3 py-2"
           href="https://shadcnn2-vishnu-bishnois-projects.vercel.app/"
           >Shad-cn Accordion-live</a
         >
         <a
-          class="text-white text-center  text-decoration-none shad_btn px-3 py-2"
+          class="text-white text-center text-decoration-none shad_btn px-3 py-2"
           href="https://github.com/vishnubishnoi0371/shadcnn.git"
           >Shad-cn Accordion-github</a
         >
@@ -48,7 +48,8 @@
         ></lottie-player>
       </div>
       <form
-        class="max-w-300 d-flex px-3 pb-3 form_card flex-column mx-auto justify-content-center"
+        id="myForm"
+        class="max-w-300 pb-3 mb-3 d-flex px-3 pb-3 form_card flex-column mx-auto justify-content-center"
       >
         <h1 class="text-center text-white mt-3">Form</h1>
         <input
@@ -57,7 +58,7 @@
           type="text"
           placeholder="User Name"
         />
-        <p id="errorname"></p>
+        <p id="errorname" class="text-danger"></p>
         <input
           id="number"
           class="custom_input"
@@ -65,28 +66,27 @@
           placeholder="Ph. no."
           maxlength="10"
         />
-        <p id="errornumber"></p>
+        <p id="errornumber" class="text-danger"></p>
         <input
           id="email"
           class="custom_input"
           type="email"
           placeholder="Email"
         />
-        <p id="erroremail"></p>
+        <p id="erroremail" class="text-danger"></p>
         <input
           id="password"
           class="custom_input"
           type="password"
           placeholder="Password"
         />
-        <p id="errorpassword"></p>
+        <p id="errorpassword" class="text-danger"></p>
 
         <input
           id="submit"
           type="submit"
           value="submit"
           class="custom_input text-black sub_btn"
-          disabled
         />
       </form>
     </div>
@@ -95,7 +95,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-
     <script src="./Assets/js/app.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </body>

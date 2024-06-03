@@ -7,6 +7,7 @@ const erroremail = document.getElementById("erroremail");
 const password = document.getElementById("password");
 const errorpassword = document.getElementById("errorpassword");
 const submit = document.getElementById("submit");
+const form = document.getElementById("myForm");
 
 const regex = {
   Name: /^[a-zA-Z\s]+$/,
@@ -15,63 +16,77 @@ const regex = {
   Password: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/,
 };
 
-function validateForm() {
-  let isValid = true;
-
-  if (!regex.Name.test(name.value)) {
-    errorname.innerHTML = "Name is required";
-    isValid = false;
+function validateInput(input, regex, errorElement, errorMessage) {
+  if (!regex.test(input.value)) {
+    errorElement.innerHTML = errorMessage;
+    return false;
   } else {
-    errorname.innerHTML = "";
+    errorElement.innerHTML = "";
+    return true;
   }
+}
 
-  if (!regex.Number.test(number.value)) {
-    errornumber.innerHTML = "Number is required";
-    isValid = false;
-  } else {
-    errornumber.innerHTML = "";
-  }
+function validateForm(showErrors = false) {
+  const isNameValid = validateInput(
+    name,
+    regex.Name,
+    errorname,
+    "Name is required"
+  );
+  const isNumberValid = validateInput(
+    number,
+    regex.Number,
+    errornumber,
+    "Number is required"
+  );
+  const isEmailValid = validateInput(
+    email,
+    regex.Email,
+    erroremail,
+    "Email is required"
+  );
+  const isPasswordValid = validateInput(
+    password,
+    regex.Password,
+    errorpassword,
+    "Password is required"
+  );
 
-  if (!regex.Email.test(email.value)) {
-    erroremail.innerHTML = "Email is required";
-    isValid = false;
-  } else {
-    erroremail.innerHTML = "";
-  }
+  const isValid =
+    isNameValid && isNumberValid && isEmailValid && isPasswordValid;
 
-  if (!regex.Password.test(password.value)) {
-    errorpassword.innerHTML = "Password is required";
-    isValid = false;
-  } else {
-    errorpassword.innerHTML = "";
+  if (showErrors) {
+    if (!isNameValid) errorname.innerHTML = "Name is required";
+    if (!isNumberValid) errornumber.innerHTML = "Number is required";
+    if (!isEmailValid) erroremail.innerHTML = "Email is required";
+    if (!isPasswordValid) errorpassword.innerHTML = "Password is required";
   }
 
   submit.disabled = !isValid;
-  submit.style.cursor = isValid ? "pointer" : "not-allowed";
+  submit.style.cursor = isValid ? "pointer" : "default";
+
   return isValid;
 }
 
-document.querySelectorAll(".custom_input").forEach((input) => {
-  input.addEventListener("input", validateForm);
-});
-
-submit.addEventListener("click", function (event) {
+form.addEventListener("submit", function (event) {
   event.preventDefault();
-  if (validateForm()) {
+  if (validateForm(true)) {
     alert("Form submitted successfully");
     name.value = "";
     number.value = "";
     email.value = "";
     password.value = "";
     submit.disabled = true;
-    submit.style.cursor = "not-allowed";
   }
 });
 
-// Additional validation for number input to allow only digits
 number.addEventListener("input", function (event) {
   const value = event.target.value;
   if (!/^\d*$/.test(value)) {
     number.value = value.replace(/\D/g, "");
   }
+});
+
+document.querySelectorAll(".custom_input").forEach((input) => {
+  input.addEventListener("input", () => validateForm(false));
 });
