@@ -10,11 +10,18 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-
     <title>lottie-practice</title>
   </head>
-  <body class="bg-black">
+  <body class="bg-dark">
     <div class="container mx-auto">
+      <div class="d-flex justify-content-center pt-5">
+        <button
+          id="toggle-theme"
+          class="theme_btn px-3 py-2 bg-transparent text-white"
+        >
+          Theme Changer
+        </button>
+      </div>
       <div
         class="d-flex flex-column flex-md-row gap-3 justify-content-center mt-5"
       >
@@ -51,7 +58,7 @@
         id="myForm"
         class="max-w-300 pb-3 mb-3 d-flex px-3 pb-3 form_card flex-column mx-auto justify-content-center"
       >
-        <h1 class="text-center text-white mt-3">Form</h1>
+        <h1 class="text-center mt-3">Form</h1>
         <input
           id="name"
           class="custom_input"
@@ -81,7 +88,6 @@
           placeholder="Password"
         />
         <p id="errorpassword" class="text-danger"></p>
-
         <input
           id="submit"
           type="submit"

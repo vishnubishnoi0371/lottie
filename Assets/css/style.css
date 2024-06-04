@@ -1,9 +1,26 @@
-.bg-black {
-  background: #000;
+body {
+  transition: background-color 0.3s ease;
 }
+
+.bg-dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.bg-orange {
+  background-color: #ff8800;
+  color: #000000;
+}
+
+.bg-green {
+  background-color: #245624;
+  color: #000000;
+}
+
 .max-w-300 {
   max-width: 300px;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -11,25 +28,29 @@
 }
 
 .form_card {
-  border: 1px solid white;
+  border: 1px solid #000000;
   border-radius: 5px;
 }
+
 p {
   margin-bottom: 0 !important;
   color: red;
 }
+
 .shad_btn {
-  border: 1px solid white;
+  border: 1px solid #000000;
   border-radius: 5px;
 }
+
 .custom_input {
   outline: none;
   margin-top: 15px;
   padding: 5px;
+  border: 1px solid #000000;
 }
 
 .sub_btn {
-  border: 2px solid black;
+  border: 2px solid #000000;
   border-radius: 2px;
   transition: all 400ms linear;
 }
@@ -37,4 +58,8 @@ p {
 .sub_btn:enabled {
   cursor: pointer;
   background: gray;
+}
+.theme_btn {
+  border-radius: 5px;
+  border: 1px solid black;
 }

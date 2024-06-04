@@ -90,3 +90,17 @@ number.addEventListener("input", function (event) {
 document.querySelectorAll(".custom_input").forEach((input) => {
   input.addEventListener("input", () => validateForm(false));
 });
+
+document.getElementById("toggle-theme").addEventListener("click", function () {
+  const body = document.body;
+  if (body.classList.contains("bg-dark")) {
+    body.classList.remove("bg-dark");
+    body.classList.add("bg-orange");
+  } else if (body.classList.contains("bg-orange")) {
+    body.classList.remove("bg-orange");
+    body.classList.add("bg-green");
+  } else {
+    body.classList.remove("bg-green");
+    body.classList.add("bg-dark");
+  }
+});
