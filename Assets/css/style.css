@@ -63,3 +63,137 @@ p {
   border-radius: 5px;
   border: 1px solid black;
 }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.navLine {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  width: 25px;
+  height: 21px;
+}
+
+.navLine .line,
+.navLine .line::before,
+.navLine .line::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.navLine .line::before {
+  position: absolute;
+  top: -8px;
+}
+
+.navLine .line::after {
+  position: absolute;
+  top: 8px;
+}
+
+.navLine.toggle .line {
+  background-color: transparent;
+}
+
+.navLine.toggle .line::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.navLine.toggle .line::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 50% !important;
+    right: 0;
+    background: #000;
+    width: 100%;
+    min-height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: all 300ms ease;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .navLine {
+    display: block;
+  }
+}
+/* tab */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #fff;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+  background-color: #ff8800;
+}
+
+.tab.active {
+  border-bottom: 2px solid #000;
+  font-weight: bold;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}

@@ -104,3 +104,28 @@ document.getElementById("toggle-theme").addEventListener("click", function () {
     body.classList.add("bg-dark");
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navLine = document.querySelector(".navLine");
+  const navLinks = document.querySelector(".nav-links");
+
+  navLine.addEventListener("click", () => {
+    navLine.classList.toggle("toggle");
+    navLinks.classList.toggle("active");
+  });
+});
+// tab
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(item => item.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active');
+    });
+  });
+});
